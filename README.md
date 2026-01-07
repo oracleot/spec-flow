@@ -36,14 +36,41 @@ This workflow helps you:
 
 ### Prerequisites
 
-- Clone this repository
-- Install Spec Kit: follow instuctions here: https://github.com/github/spec-kit
+#### Cloning the Repository
+
+To get started with this project, you'll need to clone the repository to your local machine. It is recommended to clone it in your projects directory for easier access and reference.
+
+**Steps:**
+1. Navigate to your preferred projects directory
+2. Run the git clone command with the repository URL
+```bash
+git clone https://github.com/oracleot/spec-flow.git
+cd spec-flow
+```
+
+#### Installing Spec Kit
+
+Spec Kit is required to use this toolkit. Install it using `uv`:
+
+```bash
+# Install uv package manager (if not already installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Install Spec Kit CLI
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+```
+
+Verify installation:
+
+```bash
+specify --version
+```
 
 ### New Project
 
 ```bash
 # 1. Create project
-cd ~/Projects
+cd ~/path/to/projects
 specify init my-awesome-app --ai copilot
 
 # 2. Open in VS Code
