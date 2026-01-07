@@ -36,13 +36,8 @@ This workflow helps you:
 
 ### Prerequisites
 
-```bash
-# Install Spec Kit CLI (one-time)
-uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
-
-# Verify installation
-specify check
-```
+- Clone this repository
+- Install Spec Kit: follow instuctions here: https://github.com/github/spec-kit
 
 ### New Project
 
@@ -55,7 +50,7 @@ specify init my-awesome-app --ai copilot
 code my-awesome-app
 
 # 3. Copy toolkit extensions
-cp -r ~/Projects/spec-flow/memory/* my-awesome-app/.specify/memory/
+cp -r path/to/spec-flow/memory/* my-awesome-app/.specify/memory/
 ```
 
 Then follow the [Greenfield Workflow](#greenfield-workflow-new-projects) below.
