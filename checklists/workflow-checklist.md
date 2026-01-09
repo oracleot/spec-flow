@@ -98,7 +98,7 @@
 - [ ] Build succeeds
 
 ### Phase 7: QA
-- [ ] Ran `/dami.qa`
+- [ ] Ran `/qa`
 - [ ] Type check passes
 - [ ] Lint passes
 - [ ] Unit tests pass
@@ -107,7 +107,7 @@
 - [ ] User guide generated
 
 ### Phase 8: Learn
-- [ ] Ran `/dami.learn`
+- [ ] Ran `/learn`
 - [ ] Reviewed learning materials
 - [ ] Can explain architecture
 - [ ] Understand key patterns
@@ -165,12 +165,12 @@
 - [ ] New tests added
 
 ### Phase 6: QA
-- [ ] Ran `/dami.qa`
+- [ ] Ran `/qa`
 - [ ] Feature validated
 - [ ] No regressions
 
 ### Phase 7: Learn
-- [ ] Ran `/dami.learn`
+- [ ] Ran `/learn`
 - [ ] Understand new code
 
 ---

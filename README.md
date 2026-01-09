@@ -63,7 +63,7 @@ uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
 Verify installation:
 
 ```bash
-specify --version
+specify version
 ```
 
 ### New Project
@@ -92,7 +92,6 @@ Then follow the [Greenfield Workflow](#greenfield-workflow-new-projects) below.
 
 | Phase | Mode/Agent | What You Do | Output |
 |-------|------------|-------------|--------|
-| 0 | Terminal | `specify init <project-name> --ai copilot` | Project scaffold |
 | 1 | Plan Mode | Brainstorm your idea | `docs/brainstorm.md` |
 | 2 | `speckit.constitution` | Create project principles | `.specify/memory/constitution.md` |
 | 3 | `speckit.specify` | Define what to build | `specs/001-feature/spec.md` |
@@ -107,18 +106,6 @@ Then follow the [Greenfield Workflow](#greenfield-workflow-new-projects) below.
 
 ---
 
-### Phase 0: Initialize Project
-
-```bash
-cd ~/Projects
-specify init my-app --ai copilot
-code my-app
-```
-
-**What it does:** Creates project structure with `.specify/`, `.github/agents/`, and templates.
-
----
-
 ### Phase 1: Brainstorm
 
 **Switch to:** Copilot → **Plan Mode** (not Agent mode)
@@ -126,13 +113,6 @@ code my-app
 Plan mode is conversational and asks clarifying questions. Use it to refine your idea.
 
 **Prompt Template:** See [conversation-prompts/01-brainstorm.md](conversation-prompts/01-brainstorm.md)
-
-**Example:**
-```
-I want to build a personal finance tracker that helps me understand where my money goes each month. I want to see spending by category, set budgets, and get alerts when I'm overspending. It should work offline and sync when online.
-
-Help me think through this idea. Ask me questions to clarify the scope and identify features I might be missing.
-```
 
 **After brainstorming:** Switch to **Agent Mode** and create the brainstorm file:
 
@@ -158,16 +138,6 @@ The constitution defines non-negotiable principles that guide all development.
 
 **Prompt Template:** See [conversation-prompts/02-constitution.md](conversation-prompts/02-constitution.md)
 
-**Example:**
-```
-Read docs/brainstorm.md and create a constitution focused on:
-- Code quality (Type strict, component isolation)
-- Testing requirements (what needs tests)
-- UX consistency (offline-first, responsive)
-- Performance (bundle size, load times)
-- Data privacy (local-first, user owns data)
-```
-
 **Output:** `.specify/memory/constitution.md`
 
 ---
@@ -179,16 +149,6 @@ Read docs/brainstorm.md and create a constitution focused on:
 This creates the formal feature specification with user stories and requirements.
 
 **Prompt Template:** See [conversation-prompts/03-specify.md](conversation-prompts/03-specify.md)
-
-**Example:**
-```
-Read docs/brainstorm.md and create a comprehensive feature specification.
-Focus on the MVP scope we identified. Include:
-- User stories with acceptance criteria
-- Functional requirements
-- Non-functional requirements
-- Edge cases
-```
 
 **Output:** `specs/001-feature/spec.md`
 
@@ -205,7 +165,7 @@ This agent finds ambiguities in your spec and asks targeted questions.
 - When spec has vague terms like "fast", "secure", "intuitive"
 - When you're unsure about edge cases
 
-**Prompt:**
+**Prompt Template:**
 ```
 Review the spec and identify any ambiguities that could cause problems 
 during implementation.
@@ -228,19 +188,6 @@ during implementation.
 This creates the technical implementation plan with architecture decisions.
 
 **Prompt Template:** See [conversation-prompts/04-plan.md](conversation-prompts/04-plan.md)
-
-**Example:**
-```
-Read docs/brainstorm.md and the spec. Create a technical plan using:
-- React 19 with TypeScript (strict mode)
-- Vite for build tooling
-- Tailwind CSS for styling
-- IndexedDB via Dexie.js for local storage
-- PWA for offline support
-
-For simple apps, prefer vanilla HTML/CSS/JS. Only use frameworks when 
-complexity justifies it.
-```
 
 **Stack Match Integration (JavaScript/TypeScript projects only):**
 For greenfield JavaScript/TypeScript projects where you're unsure about frontend framework choice, the agent should consult [Stack Match](https://stack-match.as93.net/) - see [memory/tooling.md](memory/tooling.md).
@@ -430,8 +377,8 @@ Teach me about Phase 3
 | 4 | `speckit.tasks` | Break down into tasks |
 | 4.5 | `speckit.analyze` | *(Optional)* Cross-check |
 | 5 | `speckit.implement` | Build the feature |
-| 6 | `dami.qa` | Test |
-| 7 | `dami.learn` | Learn |
+| 6 | `qa` | Test |
+| 7 | `learn` | Learn |
 
 ### Brownfield Constitution Prompt
 
@@ -492,8 +439,8 @@ spec-flow/
 | `speckit.tasks` | Task breakdown | Phase 5: Planning |
 | `speckit.analyze` | Cross-artifact check | Before implementing |
 | `speckit.implement` | Build the code | Phase 6: Execution |
-| `dami.qa` | Test everything | Phase 7: Validation |
-| `dami.learn` | Understand the code | Phase 8: Learning |
+| `qa` | Test everything | Phase 7: Validation |
+| `learn` | Understand the code | Phase 8: Learning |
 
 ---
 
@@ -522,7 +469,7 @@ go mod init myproject
 ```
 
 ### 5. Learn What You Build
-Don't just vibe code and forget. Run `/dami.learn` to understand patterns used.
+Don't just vibe code and forget. Run `/learn` to understand patterns used.
 
 ### 6. Keep Constitution Updated
 When you make architecture decisions, update the constitution so future features stay consistent.

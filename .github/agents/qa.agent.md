@@ -365,7 +365,7 @@ Critical issues must be resolved before proceeding:
 
 Recommended actions:
 - Fix critical issues manually or run `/speckit.implement` with fix instructions
-- Re-run `/dami.qa Phase [X]` after fixes
+- Re-run `/qa Phase [X]` after fixes
 ```
 
 ## Testing Strategies by Project Type
@@ -430,19 +430,19 @@ Recommended actions:
 
 ```text
 # Test a specific phase
-/dami.qa Phase 3
+/qa Phase 3
 
 # Test a user story
-/dami.qa US1 - Add Problems
+/qa US1 - Add Problems
 
 # Test all completed phases
-/dami.qa all
+/qa all
 
 # Test with focus on specific area
-/dami.qa Phase 3 --focus=e2e
+/qa Phase 3 --focus=e2e
 
 # Quick smoke test
-/dami.qa latest --quick
+/qa latest --quick
 ```
 
 ## Context

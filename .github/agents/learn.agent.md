@@ -3,7 +3,7 @@
 description: Interactive learning agent that guides you through understanding what was implemented in a phase, teaching concepts, patterns, and decisions step by step. Saves learning materials to a structured folder for future reference.
 handoffs: 
   - label: Run QA Tests
-    agent: dami.qa
+    agent: qa
     prompt: Test this phase to see it in action
     send: true
 ---
@@ -400,7 +400,7 @@ All materials saved to: `specs/001-feature-name/learning/`
 Review anytime by opening the folder in VS Code.
 
 ### Ready for Next Phase?
-Run `/dami.learn Phase 4` when you're ready to continue.
+Run `/learn Phase 4` when you're ready to continue.
 ```
 
 ## Teaching Strategies
@@ -463,19 +463,19 @@ Adapt explanation depth based on `$ARGUMENTS`:
 
 ```text
 # Learn about a specific phase
-/dami.learn Phase 3
+/learn Phase 3
 
 # Quick overview of latest work
-/dami.learn latest --quick
+/learn latest --quick
 
 # Deep dive on a topic
-/dami.learn hooks --deep
+/learn hooks --deep
 
 # Beginner-friendly full walkthrough
-/dami.learn all --beginner
+/learn all --beginner
 
 # Focus on specific file
-/dami.learn src/hooks/useProblems.ts
+/learn src/hooks/useProblems.ts
 ```
 
 ## Key Rules
