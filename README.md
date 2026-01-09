@@ -78,6 +78,12 @@ code my-awesome-app
 
 # 3. Copy toolkit extensions
 cp -r path/to/spec-flow/memory/* my-awesome-app/.specify/memory/
+cp -r path/to/spec-flow/.github/agents/* my-awesome-app/.github/agents/
+cp -r path/to/spec-flow/.github/prompts/* my-awesome-app/.github/prompts/
+
+# 4. Copy templates and checklists
+cp path/to/spec-flow/templates/brainstorm-template.md my-awesome-app/docs/
+cp path/to/spec-flow/checklists/workflow-checklist.md my-awesome-app/docs/
 ```
 
 Then follow the [Greenfield Workflow](#greenfield-workflow-new-projects) below.
@@ -104,6 +110,8 @@ Then follow the [Greenfield Workflow](#greenfield-workflow-new-projects) below.
 | 7 | `qa` | Test the implementation | `qa-report.md`, `user-guide.md` |
 | 8 | `learn` | Understand what was built | `learning/*.md` |
 
+**📋 Track your progress:** Use [checklists/workflow-checklist.md](checklists/workflow-checklist.md) to track your progress through each phase. If you copied it during setup, it's available at `docs/workflow-checklist.md` in your project.
+
 ---
 
 ### Phase 1: Brainstorm
@@ -117,13 +125,7 @@ Plan mode is conversational and asks clarifying questions. Use it to refine your
 **After brainstorming:** Switch to **Agent Mode** and create the brainstorm file:
 
 ```
-Create docs/brainstorm.md and organize our conversation into a structured product spec format. Include:
-- Problem statement
-- Target user
-- Core features (prioritized)
-- Nice-to-have features
-- Technical considerations we discussed
-- Open questions
+Create docs/brainstorm.md and organize our conversation into a structured product spec format following docs/brainstorm-template.md
 ```
 
 **Output:** `docs/brainstorm.md`
@@ -409,18 +411,26 @@ Read the spec and create a plan that:
 ```
 spec-flow/
 ├── README.md                    # This file
-├── conversation-prompts/                     # Ready-to-use prompt templates
+├── .github/
+│   ├── agents/                  # Custom agents (copy to project)
+│   │   ├── learn.agent.md
+│   │   └── qa.agent.md
+│   ├── prompts/                 # Custom prompts (copy to project)
+│   │   ├── learn.prompt.md
+│   │   └── qa.prompt.md
+│   └── copilot-instructions.md  # Repo-level Copilot instructions
+├── conversation-prompts/        # Ready-to-use prompt templates
 │   ├── 01-brainstorm.md
 │   ├── 02-constitution.md
 │   ├── 03-specify.md
 │   ├── 04-plan.md
 │   └── 05-implement.md
 ├── templates/                   # File templates
-│   └── brainstorm-template.md
+│   └── brainstorm-template.md   # Structure for brainstorm output
 ├── memory/                      # Memory files to copy into projects
 │   └── tooling.md
 └── checklists/                  # Reference checklists
-    └── workflow-checklist.md
+    └── workflow-checklist.md    # Track workflow progress
 ```
 
 ---
